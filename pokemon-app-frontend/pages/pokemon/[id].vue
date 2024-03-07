@@ -80,6 +80,10 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+  titleTemplate: 'Pokemon Detail',
+})
+
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 

@@ -16,6 +16,10 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+  titleTemplate: 'Home Pokemon List',
+})
+
 import PokemonList from "@/components/PokemonList.vue";
 import Pagination from "@/components/Pagination.vue";
 import { ref, onMounted } from "vue";

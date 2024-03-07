@@ -71,6 +71,10 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+  titleTemplate: 'My Pokemon List',
+})
+
 const store = usePokemonStore();
 const myPokemonList = store.myPokemonList;
 const showModalSuccess = ref(false);
