@@ -5,7 +5,10 @@
       :alt="pokemon.name"
       class="w-32 h-32 rounded-full border-4 border-blue-700 mx-auto"
     />
-    <h2 class="text-lg font-bold text-blue-900 text-center">
+    <h2 class="mt-2 text-xl font-bold text-center">
+      {{ pokemon.custom_name }}
+    </h2>
+    <h2 class="font-bold text-blue-900 text-center">
       {{ pokemon.name }}
     </h2>
     <div class="flex flex-col space-y-2">
