@@ -17,10 +17,15 @@
         >
           Catch the {{ pokemon.name }}
         </button>
-        <p v-if="pokemonCaught" class="mt-4 text-green-600 font-bold">
-          Congratulations! {{ pokemon.name }} has been added to your Pokemon
-          List!
-        </p>
+        <template v-if="pokemonCaught">
+          <p class="mt-4 text-green-600 font-bold">
+            Congratulations! {{ pokemon.name }} has been added to your Pokemon
+            List!
+          </p>
+          <router-link to="/my-pokemon-list" class="mt-4 text-blue-700 hover:underline mb-4 block">
+            View My Pokemon List &gt;
+          </router-link>
+        </template>
       </div>
     </div>
     <Modal
@@ -130,6 +135,7 @@ const closeModalConfirm = () => {
   showModalConfirm.value = false;
   enteredName.value = "";
 };
+
 const closeModalError = () => {
   showModalError.value = false;
   enteredName.value = "";
@@ -145,6 +151,7 @@ const confirmNaming = () => {
     custom_name: enteredName.value,
     custom_name_pool: enteredName.value,
     custom_idx: 0,
+    custom_fibo: 0,
   });
   closeModalConfirm();
   pokemonCaught.value = true;

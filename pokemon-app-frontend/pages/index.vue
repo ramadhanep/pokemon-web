@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto my-8 px-12">
-    <h1 class="text-3xl font-bold mb-4 text-center">Pokemon List</h1>
+    <h1 class="text-3xl font-bold my-8 text-center">Pokemon List</h1>
     <PokemonList :pokemonList="pokemonList" />
     <Pagination
       v-if="showPagination"

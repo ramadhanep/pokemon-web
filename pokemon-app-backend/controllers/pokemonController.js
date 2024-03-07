@@ -14,8 +14,9 @@ const releasePokemon = (req, res) => {
 
 const renamePokemon = (req, res) => {
   const { name, renameCount } = req.body;
-  const newName = fibonacciHelper.generateRenamedName(name, renameCount);
-  res.json({ newName });
+  const fib = fibonacciHelper.fibonacci(renameCount);
+  const newName = `${name}-${fib}`;
+  res.json({ newName, fiboNumber: fib });
 };
 
 module.exports = {
