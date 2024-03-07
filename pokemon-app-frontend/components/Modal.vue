@@ -1,5 +1,3 @@
-<!-- components/Modal.vue -->
-
 <template>
   <div
     v-if="visible"
@@ -14,7 +12,3 @@
 <script setup lang="ts">
 defineProps<{ visible: boolean | null }>();
 </script>
-
-<style scoped>
-/* Add your custom styles here */
-</style>

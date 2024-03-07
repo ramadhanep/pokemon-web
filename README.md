@@ -1,3 +1,3 @@
 # Pokemon Web
 
-Stacks: Nuxt 3 and Express
+Stacks: Nuxt 3 (frontend) and Express (backend)
