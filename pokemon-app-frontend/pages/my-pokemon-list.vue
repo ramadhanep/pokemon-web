@@ -54,8 +54,7 @@
     <Modal :visible="showModalError" @update:visible="showModalError = $event">
       <p class="text-center text-3xl">❌</p>
       <p class="mt-6">
-        Error!, {{ releasePokemonName }}! cannot release, because its not prime
-        number
+        Error!, {{ releasePokemonName }}! cannot release, please try again
       </p>
       <div class="flex justify-end mt-6">
         <button
@@ -107,17 +106,18 @@ const closeModalError = () => {
   showModalError.value = false;
 };
 
-const releasePokemon = async (idx, custom_fibo) => {
+const releasePokemon = async (idx: number, custom_fibo: any) => {
   try {
-    const response = await $fetch(`http://localhost:3001/api/releasePokemon`, {
+    const response = await fetch(`http://localhost:3001/api/releasePokemon`, {
       method: "POST",
-      type: "application/json",
-      body: {
-        number: custom_fibo,
-      },
+      headers: {
+        "Content-Type": "application/json"
+      }
     });
+    const data = await response.json();
     releasePokemonName.value = myPokemonList[idx].custom_name;
-    if (response.release) {
+    const released = isPrimeNumber(data.number);
+    if (released) {
       myPokemonList.splice(idx, 1);
       showModalSuccess.value = true;
     } else {
@@ -126,5 +126,17 @@ const releasePokemon = async (idx, custom_fibo) => {
   } catch (error) {
     console.error("Error fetching Pokemon list:", error);
   }
+};
+
+const isPrimeNumber = (num: number): boolean => {
+  if (num <= 1) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
 };
 </script>

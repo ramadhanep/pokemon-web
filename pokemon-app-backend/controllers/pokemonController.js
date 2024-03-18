@@ -1,4 +1,3 @@
-const primeHelper = require("../helpers/primeHelper");
 const fibonacciHelper = require("../helpers/fibonacciHelper");
 
 const catchProbability = (req, res) => {
@@ -7,9 +6,8 @@ const catchProbability = (req, res) => {
 };
 
 const releasePokemon = (req, res) => {
-  const { number } = req.body;
-  const isPrime = primeHelper.checkPrime(number);
-  res.json({ release: isPrime });
+  const randomNumber = Math.floor(Math.random() * 100) + 1;
+  res.json({ number: randomNumber });
 };
 
 const renamePokemon = (req, res) => {

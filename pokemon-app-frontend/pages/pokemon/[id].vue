@@ -117,7 +117,7 @@ const catchPokemon = async () => {
     const response = await $fetch(
       `http://localhost:3001/api/catchProbability`,
       {
-        method: "GET",
+        method: "POST",
         type: "application/json",
       }
     );
@@ -131,7 +131,7 @@ const catchPokemon = async () => {
     }
   } catch (error) {
     showModalError.value = false;
-    showModalConfirm.value = true;
+    showModalConfirm.value = false;
     console.error("Error fetching Pokemon list:", error);
   }
 };
